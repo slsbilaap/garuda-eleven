@@ -13,10 +13,10 @@ class Product(models.Model):
     ]
 
     name = models.CharField()
-    price = models.IntegerField()
+    price = models.IntegerField(default=0)
     description = models.TextField()
     thumbnail = models.URLField()
-    category = models.CharField()
+    category = models.CharField(choices=CATEGORY_CHOICES)
     is_featured = models.BooleanField(default=False)
     stock = models.PositiveIntegerField(default=0)
 
