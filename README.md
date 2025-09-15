@@ -61,3 +61,4 @@ Apakah ada feedback untuk asdos di tutorial 2 yang sudah kalian kerjakan?
  Mungkin lebih responsif saja, namun saya melihat bahwa asdos sudah banyak membantu pada waktu tutorial.
 
 Screenshoot hasil akses URL pada Postman
+![alt text](https://github.com/slsbilaap/garuda-eleven/blob/master/xml_json.jpg?raw=true)
