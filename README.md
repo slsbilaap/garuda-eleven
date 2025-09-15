@@ -15,7 +15,7 @@ Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-b
  12. Push kembali ke repository.
 
 Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
-
+![alt text](https://github.com/slsbilaap/garuda-eleven/blob/master/Django.png?raw=true)
  Proses dimulai dengan adanya request HTTPS dari user. Request ini diterima oleh urls.py yang kemudian memetakan path ke views.py sebagai petunjuk path yang diinginkan. Selanjutnya views.py menjembatani models.py dan template html. File views.py mengembalikan template yang relevan berdasarkan permintaan, sesuai dengan data dari model. Model dalam file models.py terhubung ke database dan fungsinya adalah sebagai data yang ingin ditampilkan. Setelah proses ini, user mendapatkan tampilan yang diinginkan dengan data yang sesuai.
 
 Jelaskan peran settings.py dalam proyek Django!
