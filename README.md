@@ -1,5 +1,6 @@
 link PWS: https://msy-aulya-garudaeleven.pbp.cs.ui.ac.id
 
+--Tugas 2--
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
  1. Membuat repositori garuda-eleven (nama dari football-shop), membuat dan menjalankan virtual environment.
  2. Proyek django dibuat dengan bantuan file requirements.txt yang berisi dependensi yang dibutuhkan. Dependensi ini diinstal dan proyek django bernama garuda_eleven dibuat.
@@ -29,3 +30,34 @@ Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan 
 
 Apakah ada feedback untuk asisten dosen tutorial 1 yang telah kamu kerjakan sebelumnya?
  Asisten dosen sudah sangat membantu. Sayangnya saya awalnya tidak mengetahui bahwa ada discord bagi masing-masing asdos di kelas dan baru join di pertengahan waktu pengerjaan tutorial, di mana pada waktu tersebut saya sudah menyelesaikan tutorial.
+
+--Tugas 3--
+Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+ Platform biasanya melibatkan frontend, backend, hingga database. Agar semua bagian ini bisa terhubung dan bertukar informasi, maka data delivery dibutuhkan. Secara sederhana data delivery diperlukan agar request yang masuk bisa dikembalikan sesuai yang diinginkan karena data sudah terintegrasi. Data delivery ini memungkinkan user untuk mengakses objek dalam format XML atau JSON (pada tugas kali ini).
+
+Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+ JSON lebih baik karena memiliki keunggulan di beberapa aspek penting dibandingkan XML. JSON juga lebih populer karena keunggulan ini. Sintaks JSON lebih padat dan mudah dibaca-tulis, dokumentasi skemanya juga sederhana dan lebih fleksibel dibandingkan XML. Selain itu, JSON memiliki ukuran file yang lebih kecil sehingga membutuhkan lebih sedikit memori dan transmisi data yang lebih cepat. Meskipun begitu, XML cocok untuk data yang kompleks dan memerlukan fitur yang lebih canggih dari JSON.
+
+Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+ Method is_valid() memiliki peran untuk mengecek informasi yang dimasukkan pada form dan mengonfirmasinya. Contohnya pada stok produk yang harus bernilai positif, is_valid() membuat user tidak bisa memasukkan stok negatif. Method ini memastikan data yang masuk sesuai aturan (dalam hal ini ditetapkan pada models.py).
+
+Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+ csrf_token merupakan kode unik yang dihasilkan server setiap sesi user. Kode ini diperlukan sebagai lapisan keamanan untuk mencegah Cross-Site request Forgery (CSRF), yaitu penyerang mengirim request palsu dengan menyamar sebagai user. Penyerang bisa menyisipkan kode berbahaya yang berakibat pada pencurian data atau perubahan password. csrf_token dibuat untuk melindungi user dari kerugian ini seperti ketika user mengirim request, request tersebut dicocokkan dengan token unik pada sesi tersebut. Apabila tidak cocok, maka request ditolak sehingga pihak penyerang tidak dapat mengirim request palsu.
+
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+ 1. Membuat file base.html sebagai template dasar untuk web.
+ 2. Menambahkan template base.html ke settings.py sehingga template bisa dibaca.
+ 3. Membuat file forms.py pada main untuk menentukan informasi yang harus diisi ketika menambahkan produk baru.
+ 4. Menambahkan import form ke views.py dan membuat fungsi untuk menambah produk setelah mengisi form, serta menampilkan produk.
+ 5. Mengimport fungsi dari views.py ke urls.py dan menambahkan path yang sesuai agar bisa diakses.
+ 6. Memodifikasi template main.html untuk menambah tombol add product, kemudian template untuk menampilkan produk yang ada. Pada bagian bawah juga ditempatkan tombol untuk melihat detail produk.
+ 7. Membuat file create_product.html dan product_detail.html yang masing-masing berfungsi sebagai template tampilan web ketika menambahkan produk dan ketika membuka detail produk. Kedua template ini ditampilkan ketika menekan tombol Add Product atau View Details.
+ 8. Mengimport HttpResponse dan Serializer pada views.py agar user bisa mendapat respon berupa format XML dan JSON.
+ 9. Membuat fungsi show_xml, show_json, show_xml_by_id, dan show_json_by_id di views.py yang menerima parameter request agar mengembalikannya dalam format XML atau JSON. Fungsi show by id menerima parameter id dan mengembalikan tampilan XML atau JSON berdasarkan id produk yang diminta. Semua fungsi memiliki variabel yang menyimpan hasil query dari Product dan mengembalikannya sesuai request.
+ 10. Import keempat fungsi yang dibuat ke urls.py, kemudian membuat path untuk masing-masing fungsi agar dapat diakses.
+ 11. Melakukan add, commit, dan push ke github dan pws.
+
+Apakah ada feedback untuk asdos di tutorial 2 yang sudah kalian kerjakan?
+ Mungkin lebih responsif saja, namun saya melihat bahwa asdos sudah banyak membantu pada waktu tutorial.
+
+Screenshoot hasil akses URL pada Postman
