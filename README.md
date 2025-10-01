@@ -95,3 +95,43 @@ Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-b
  15. Membuat tombol filter "My" dan "All" pada main.html.
  16. Menambahkan tampilan nama pembuat produk di product_detail.html.
  17. Membuat dua akun pengguna dengan masing-masing 3 dummy data.
+
+--Tugas 5--
+
+Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+ 1. Inline styles: menyatakan style yang langsung digunakan pada elemen HTML, penggunaannya dengan style="color= #94CEFF". Inline style dianggap kuat karena bisa meng-override perintah lain (kecuali jika memakai !important) dan paling dekat dengan elemen.
+ 2. ID selector: menggunakan id elemen yang unik per halaman untuk menjalankan selector sehingga lebih dianggap penting daripada class yang bisa dipakai berulang.
+ 3. Classes selector: selector yang dapat dipakai berkali-kali, contohnya .lead { font-size: 10px; }
+ 4. Element selector: memungkinkan pengubahan properti untuk semua elemen yang memiliki tag HTML yang sama dengan langsung menunjuk tag HTML tersebut. Dianggap paling lemah karena terlalu umum, bisa berefek pada semua elemen dengan tag HTML yang sama.
+
+Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design, serta jelaskan mengapa!
+ Responsive design memungkinkan user untuk mendapatkan tampilan web yang menyesuaikan dengan berbagai ukuran layar yang sedang digunakan user tersebut. Konsep ini sangat penting karena user biasanya tidak hanya mengakses web dari pc atau laptop, namun juga dari smartphone masing-masing. Tanpa responsive design, tampilan web yang misalnya hanya dirancang untuk akses pc tidak dapat diakses dengan baik pada smartphone sehingga user experience tidak akan baik. Contoh aplikasi yang sudah menerapkan responsive design yaitu netflix, karena tampilannya pada desktop dan smartphone maupun tablet berbeda, namun tetap memiliki fungsi yang sama. Tampilan aplikasi yang belum menerapkan responsive design akan sama dari berbagai device. Contohnya halaman login SIAK yang terlihat normal ketika diakses dari desktop, namun sangat kecil jika diakses dari hp.
+
+Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+ Margin merupakan jarak dari suatu elemen dengan elemen lain, border merupakan bingkai yang membungkus elemen-elemen pada web, dan padding merupakan jarak antara konten dan bordernya. Contoh pengimplementasiannya yaitu (misalkan pada file css)
+ -box {
+    margin: 3px; (jarak antar elemen 3px)
+    border: 2px solid #56769C; (garis bingkai dengan tebal 2px dan warna biru)
+    padding: 15px; (jarak isi konten ke border)
+ }
+
+Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+ Flex box digunakan untuk menyusun elemen berukuran satu dimensi, untuk mengaturnya dalam baris atau kolom dengan fleksibel. Contoh flex box yaitu pada navigation bar. Sedikit berbeda dengan ini, grid layout dirancang untuk dua dimensi dan dapat membuat layout yang lebih kompleks, dengan baris dan kolom. Contoh penggunaannya pada galeri foto dimana foto disusun berdasarkan baris dan kolom.
+
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+ 1. Menambahkan tailwind ke aplikasi football shop, dengan memodifikasi file base.html
+ 2. Menambahkan fungsi edit_product pada views.py, kemudian membuat file edit_product.html sebagai tampilan ketika mengedit produk. Setelah file selesai, mengimport fungsi edit_product ke urls.py dan menambahkan pathnya.
+ 3. Menambahkan fungsi delete_product pada views.py, mengimport ke urls.py, dan menambahkan pathnya agar bisa menghapus produk.
+ 4. Mencoba menambahkan tombol edit dan delete pada main.html dan mengecek apakah program sudah berjalan dengan benar.
+ 5. Membuat tampilan navigation bar (navbar.html) yang disesuaikan dengan warna yang diinginkan.
+ 6. Mengonfigurasi static pada aplikasi, seperti menambahkan whitenoise middleware pada settings.py.
+ 7. Membuat global.css untuk membuat kelas custom, mengikuti tutorial namun dengan warna yang disesuaikan.
+ 8. Menambahkan global.css ke base.html agar dapat digunakan dalam template Django.
+ 9. Mengedit tampilan navigation bar agar sesuai dengan yang diinginkan.
+ 10. Mengedit tampilan login seperti mengubah warna.
+ 11. Mengedit tampilan register dan menyesuaikan palet warnanya dengan login.
+ 12. Membuat file card_products.html dan mengeditnya agar dapat menampilkan produk yang dijual dan menyesuaikan tampilannya agar memuat lebih banyak produk dalam satu layar.
+ 13. Menambahkan no-product.pny sebagai image tampilan jika produk masih kosong.
+ 14. Memasukkan card_news.html dan no-product.png ke main-html dan mengubah warna tampilan pada main.
+ 15. Mengedit halaman detail, create, dan edit product agar sesuai dengan palet warna.
+ 16. Push ke git dan pws.
