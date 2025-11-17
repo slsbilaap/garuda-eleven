@@ -192,3 +192,12 @@ def add_product_entry_ajax(request):
     new_product.save()
     return HttpResponse(b"CREATED", status=201)
 
+# def sort_product(request):
+#     sorting = request.GET.get('sorting', 'asc')
+#     if sorting == 'asc':
+#         product = Product.objects.all().order_by('price')
+#     else:
+#         product = Product.objects.all().order_by("-price")
+
+#     data = list(product.values('price'))
+#     return JsonResponse(data, safe=False)

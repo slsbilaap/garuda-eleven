@@ -131,7 +131,7 @@ Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-b
  10. Mengedit tampilan login seperti mengubah warna.
  11. Mengedit tampilan register dan menyesuaikan palet warnanya dengan login.
  12. Membuat file card_products.html dan mengeditnya agar dapat menampilkan produk yang dijual dan menyesuaikan tampilannya agar memuat lebih banyak produk dalam satu layar.
- 13. Menambahkan no-product.pny sebagai image tampilan jika produk masih kosong.
+ 13. Menambahkan no-product.py sebagai image tampilan jika produk masih kosong.
  14. Memasukkan card_news.html dan no-product.png ke main-html dan mengubah warna tampilan pada main.
  15. Mengedit halaman detail, create, dan edit product agar sesuai dengan palet warna.
  16. Push ke git dan pws.

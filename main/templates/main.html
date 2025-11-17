@@ -38,6 +38,11 @@
       {% endif %}
     </div>
 
+    {% comment %}
+      the Django 'if/else/for' logic has been removed. 
+      new divs are placeholders, all hidden by default. JavaScript will decide which one to show.
+    {% endcomment %}
+
     <!-- Loading State -->
     <div id="loading" class="bg-white rounded-lg border border-gray-200 p-12 text-center hidden">
       <svg class="animate-spin h-8 w-8 text-[#334559] inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -131,17 +136,17 @@ function buildProductCardElement(product) {
   const cardElement = document.createElement('div');
   cardElement.className = 'bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col h-full';
 
-  const detailLink = `{% url 'main:show_product' '00000000-0000-0000-0000-000000000000' %}`.replace('00000000-0000-0000-0000-000000000000', product.pk);
-  const editLink = `{% url 'main:edit_product' '00000000-0000-0000-0000-000000000000' %}`.replace('00000000-0000-0000-0000-000000000000', product.pk);
-  const deleteLink = `{% url 'main:delete_product' '00000000-0000-0000-0000-000000000000' %}`.replace('00000000-0000-0000-0000-000000000000', product.pk);
+  const detailLink = `{% url 'main:show_product' '00000000-0000-0000-0000-000000000000' %}`.replace('00000000-0000-0000-0000-000000000000', product.id);
+  const editLink = `{% url 'main:edit_product' '00000000-0000-0000-0000-000000000000' %}`.replace('00000000-0000-0000-0000-000000000000', product.id);
+  const deleteLink = `{% url 'main:delete_product' '00000000-0000-0000-0000-000000000000' %}`.replace('00000000-0000-0000-0000-000000000000', product.id);
 
-  const name = DOMPurify.sanitize(product.fields.name);
-  const price = DOMPurify.sanitize(product.fields.price);
-  const stock = DOMPurify.sanitize(product.fields.stock);
-  const description = DOMPurify.sanitize(product.fields.description);
-  const thumbnail = DOMPurify.sanitize(product.fields.thumbnail);
-  const category = DOMPurify.sanitize(product.fields.category);
-  const isFeatured = product.fields.is_featured;
+  const name = DOMPurify.sanitize(product.name);
+  const price = DOMPurify.sanitize(product.price);
+  const stock = DOMPurify.sanitize(product.stock);
+  const description = DOMPurify.sanitize(product.description);
+  const thumbnail = DOMPurify.sanitize(product.thumbnail);
+  const category = DOMPurify.sanitize(product.category);
+  const isFeatured = product.is_featured;
 
   const productImage = thumbnail 
     ? `<img src='${thumbnail}' alt='${name}' class='w-full h-full object-cover'>`
@@ -149,7 +154,7 @@ function buildProductCardElement(product) {
 
   const formattedPrice = `Rp${Number(price).toLocaleString('id-ID')}`;
 
-  const editDeleteButtons = CURRENT_USER_ID && String(CURRENT_USER_ID) === String(product.fields.user)
+  const editDeleteButtons = CURRENT_USER_ID && String(CURRENT_USER_ID) === String(product.user_id)
     ? `<div class='flex space-x-2'>
         <a href='${editLink}' class='text-gray-600 hover:text-gray-700 text-sm transition-colors'>Edit</a>
         <a href='${deleteLink}' class='text-red-600 hover:text-red-700 text-sm transition-colors' onclick='return confirm("Are you sure you want to delete this product?")'>Delete</a>
@@ -164,7 +169,7 @@ function buildProductCardElement(product) {
       <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
         <a href="${detailLink}" class="hover:text-[#334559] transition-colors">${name}</a>
       </h3>
-      <p class="text-gray-600 text-sm mb-4 line-clamp-3">${description || 'No description available.'}</p>
+        <p class="text-gray-600 text-sm mb-4 line-clamp-3">${description || 'No description available.'}</p>
       <p class="text-gray-500 text-sm mb-4">
         Category: ${getReadableCategoryName(category)}
       </p>
@@ -247,6 +252,34 @@ function initializeProductPage() {
   
   fetchProductFromServer();
 }
+
+// function sortingPrice() {
+//   sortedProduct = allProductData;
+//   if (activeFilter==='ascprice') {
+//     sortedProduct.sort((a, b) => a.price - b.price)
+//   } else {
+//     sortedProduct.sort((a, b) => b.price - a.price)
+//   }
+
+//   if (sortedProduct.length === 0) {
+//     displayPageSection({ showEmpty: true });
+//   } else {
+//     renderAllProductCards(sortedProduct);
+//     displayPageSection({ showGrid: true });
+//   }
+// }
+
+// function handleAscendingPrice(event) {
+//   event.preventDefault();
+//   activeFilter = 'ascprice';
+//   sortingPrice();
+// }
+
+// function handleDescendingPrice(event) {
+//   event.preventDefault();
+//   activeFilter = 'descprice';
+//   sortingPrice();
+// }
 
 // Start application
 initializeProductPage();

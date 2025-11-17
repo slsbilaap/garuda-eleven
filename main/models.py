@@ -34,3 +34,15 @@ class Employee(models.Model):
     name = models.CharField(max_length=255)
     age = models.BigIntegerField()
     persona = models.TextField()
+
+# model book: id-uuid, title-charfield 255
+# model author: bio-textfield, books (manytomany), user-(onetoone)
+
+# class Book(models.Model):
+#     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+#     title = models.CharField(max_length=255)
+
+# class Author(models.Model):
+#     bio = models.TextField()
+#     books = models.ManyToManyField(Book)
+#     user = models.OneToOneField(User)
