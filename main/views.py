@@ -73,7 +73,31 @@ def show_xml(request):
     return HttpResponse(xml_data, content_type="application/xml")
 
 def show_json(request):
-    product_list = Product.objects.all()
+    filter_type = request.GET.get("filter", "all")
+
+    if filter_type == "all":
+        product_list = Product.objects.all()
+    else :
+        product_list = Product.objects.filter(user=request.user)
+
+    data = [
+        {
+            'id': str(product.id),
+            'name': product.name,
+            'price': product.price,
+            'description': product.description,
+            'thumbnail': product.thumbnail,
+            'category': product.category,
+            'is_featured': product.is_featured,
+            'stock': product.stock,
+            'user_id': product.user_id,
+        }
+        for product in product_list
+    ]
+    return JsonResponse(data, safe=False)
+
+def show_json_mine(request):
+    product_list = Product.objects.filter(user=request.user)
     data = [
         {
             'id': str(product.id),
